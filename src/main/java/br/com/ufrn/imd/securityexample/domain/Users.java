@@ -1,20 +1,17 @@
 package br.com.ufrn.imd.securityexample.domain;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.SequenceGenerator;
+import jakarta.persistence.*;
 
 @Entity
 public class Users {
-	
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.SEQUENCE, generator="SEQ_USR")
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@SequenceGenerator(name="SEQ_USR", sequenceName="id_seq_usr", allocationSize=1)
     private Long id;
+	@Column
     private String username;
+	@Column
     private String password;
     private boolean active;
 	public Long getId() {
